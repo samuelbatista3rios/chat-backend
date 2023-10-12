@@ -2,10 +2,11 @@ const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
 const jwt = require("jsonwebtoken");
+const allowCors = require("./allowCors")
 
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: true }));
+app.use('/api', allowCors)
 
 const CHAT_ENGINE_PROJECT_ID = "";
 const CHAT_ENGINE_PRIVATE_KEY = "";
@@ -63,6 +64,6 @@ app.get("/chat", authenticateUser, (req, res) => {
     const username = req.username;
     res.send(`Welcome to the chat, ${username}!`);
   });
-  
+
 // vvv On port 3001!
 app.listen(3001);
