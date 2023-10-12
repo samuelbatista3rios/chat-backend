@@ -1,0 +1,5 @@
+POST HTTP://localhost:3001/authentication 
+Content-Type: application/json
+
+{
+    "username": "admin" }
